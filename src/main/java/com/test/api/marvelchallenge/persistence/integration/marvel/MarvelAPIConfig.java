@@ -14,7 +14,7 @@ import java.util.Map;
 public class MarvelAPIConfig {
 
     @Autowired
-    @Qualifier("md5Enconder")
+    @Qualifier("md5Encoder")
     private PasswordEncoder md5Encoder;
 
     private long timestamp = new Date(System.currentTimeMillis()).getTime();

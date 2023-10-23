@@ -6,14 +6,15 @@ import com.test.api.marvelchallenge.persistence.integration.marvel.mapper.Charac
 import com.test.api.marvelchallenge.persistence.integration.marvel.MarvelAPIConfig;
 import com.test.api.marvelchallenge.persistence.integration.marvel.dto.CharacterDto;
 import com.test.api.marvelchallenge.service.HttpClientService;
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Repository
@@ -65,7 +66,7 @@ public class CharacterRepository {
         List<String> stringArray = IntStream.of(intArray)
                 .boxed()
                 .map(Object::toString)
-                .toList();
+                .collect(Collectors.toList());
         return String.join(",", stringArray);
     }
 
